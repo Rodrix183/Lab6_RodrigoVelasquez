@@ -1,5 +1,7 @@
 package lab6_rodrigovelasquez;
 
+import java.util.ArrayList;
+
 public class LOGIN extends javax.swing.JFrame {
 
     public LOGIN() {
@@ -122,4 +124,6 @@ public class LOGIN extends javax.swing.JFrame {
     private javax.swing.JPasswordField pf_password;
     private javax.swing.JTextField tf_user;
     // End of variables declaration//GEN-END:variables
+ArrayList<Usuario> lista_users = new ArrayList<>();
+
 }
