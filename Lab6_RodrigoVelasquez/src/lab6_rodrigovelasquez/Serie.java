@@ -6,14 +6,14 @@ public class Serie {
 
 private String nombre;
     private int minutos_cap;
-    private String categoria;
-    private ArrayList <String> actores_principales = new ArrayList<>();
+    private String categoria;    
     private int temporadas;
     private String productora;
     private String idiomaOriginal;
     private String doblaje;
     private String subtitulos_español;   
-
+    private ArrayList<Actor> actores_principales = new ArrayList<>();
+    
     public Serie() {
     }
 
@@ -53,14 +53,15 @@ private String nombre;
         this.categoria = categoria;
     }
 
-    public ArrayList<String> getActores_principales() {
+    public ArrayList<Actor> getActores_principales() {
         return actores_principales;
     }
 
-    public void setActores_principales(ArrayList<String> actores_principales) {
+    public void setActores_principales(ArrayList<Actor> actores_principales) {
         this.actores_principales = actores_principales;
     }
 
+    
     public int getTemporadas() {
         return temporadas;
     }
@@ -99,9 +100,7 @@ private String nombre;
 
     public void setIdiomaOriginal(String idiomaOriginal) {
         this.idiomaOriginal = idiomaOriginal;
-    }
-    
-    
+    }        
 
     @Override
     public String toString() {

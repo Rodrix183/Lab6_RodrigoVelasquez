@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class AdministrarSeries {
 
@@ -39,22 +40,22 @@ public class AdministrarSeries {
     public void setSerie(Serie s) {
         this.lista_series.add(s);
     }
-    
-    public void escribirArchivo() throws IOException{
-     FileWriter fw = null;
+
+    public void escribirArchivo() throws IOException {
+        FileWriter fw = null;
         BufferedWriter bw = null;
         try {
             fw = new FileWriter(archivo);
             bw = new BufferedWriter(fw);
             for (Serie serie : lista_series) {
-                bw.write(serie.getNombre()+";");
-                bw.write(serie.getMinutos_cap()+";");
-                bw.write(serie.getCategoria()+";");
-                bw.write(serie.getTemporadas()+";");
-                bw.write(serie.getProductora()+";");
-                bw.write(serie.getIdiomaOriginal()+";");
-                bw.write(serie.getDoblaje()+";");
-                bw.write(serie.getSubtitulos_español()+";");
+                bw.write(serie.getNombre() + ";");
+                bw.write(serie.getMinutos_cap() + ";");
+                bw.write(serie.getCategoria() + ";");
+                bw.write(serie.getTemporadas() + ";");
+                bw.write(serie.getProductora() + ";");
+                bw.write(serie.getIdiomaOriginal() + ";");
+                bw.write(serie.getDoblaje() + ";");
+                bw.write(serie.getSubtitulos_español() + ";");
             }
             bw.flush();
         } catch (Exception e) {
@@ -63,10 +64,43 @@ public class AdministrarSeries {
         bw.close();
         fw.close();
     }
-    
-    public void cargarArchivo(){
-    
-    
+
+    public void cargarArchivo() {
+        Scanner lea = null;
+        lista_series = new ArrayList<>();
+        if (archivo.exists()) {
+            try {
+                lea = new Scanner(archivo);
+                lea.useDelimiter(";");
+                while (lea.hasNext()) {
+                    ArrayList<Serie> temp = new ArrayList<>();
+                    //atributos de la serie
+                    String nom = "", cat = "", prod = "", idioma = "", dub = "", sub = "";
+                    int min = 0, season = 0;                   
+                    //nombre actor
+                    String nombreActor = "";                    
+
+                    nom = lea.next();
+                    min = lea.nextInt();
+                    cat = lea.next();
+                    season = lea.nextInt();
+                    prod = lea.next();
+                    idioma = lea.next();
+                    dub = lea.next();
+                    sub = lea.next();
+
+                    Scanner lea2 = new Scanner(lea.next());
+                    lea2.useDelimiter(",");
+//                    while(lea2.hasNext()){
+//                        temp.add(new ActoresSerie(nombreActor));
+//                    }
+                }
+            } catch (Exception e) {
+            } finally {
+                lea.close();
+            }
+        }
+
     }
-    
+
 }
