@@ -44,7 +44,7 @@ public class LOGIN extends javax.swing.JFrame {
         rb_sub2 = new javax.swing.JRadioButton();
         jLabel12 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        tf_actoresPeli = new javax.swing.JTextField();
+        tf_actoresPeli3 = new javax.swing.JTextField();
         tf_actoresPeli1 = new javax.swing.JTextField();
         tf_actoresPeli2 = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
@@ -166,8 +166,13 @@ public class LOGIN extends javax.swing.JFrame {
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, -1, -1));
 
         jButton2.setText("Guardar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, -1, -1));
-        jPanel1.add(tf_actoresPeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 120, -1));
+        jPanel1.add(tf_actoresPeli3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 120, -1));
         jPanel1.add(tf_actoresPeli1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 120, -1));
         jPanel1.add(tf_actoresPeli2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, 120, -1));
 
@@ -452,15 +457,74 @@ public class LOGIN extends javax.swing.JFrame {
                 jd_nesflis.setModal(true);
                 jd_nesflis.pack();
                 jd_nesflis.setLocationRelativeTo(this);
-                
+
                 jd_nesflis.setVisible(true);
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(this, "No validos");
             }
         } catch (Exception e) {
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // guardar pelicula
+        String nombre = tf_nombrePeli.getText();
+        int duracion = Integer.parseInt(tf_duracionPeli.getText());
+        String categoria = "";
+        if (rb1.isSelected()) {
+            categoria = "Suspenso";
+        } else if (rb2.isSelected()) {
+            categoria = "Terror";
+        } else if (rb3.isSelected()) {
+            categoria = "Accion";
+        } else if (rb4.isSelected()) {
+            categoria = "Romanticas";
+        } else if (rb5.isSelected()) {
+            categoria = "Ciencia Ficcion";
+        } else if (rb6.isSelected()) {
+            categoria = "Animacion";
+        } else if (rb7.isSelected()) {
+            categoria = "Fantasia";
+        } else {
+            categoria = "-";
+        }
+        //
+        String director = tf_directorPeli.getText();
+        String compania = tf_companiaPeli.getText();
+        String idioma = "No";
+        if (rb_dub1.isSelected()) {
+            idioma = "Si";
+        } else {
+            idioma = "No";
+        }
+        String sub = "No";
+        if (rb_sub1.isSelected()) {
+            sub = "Si";
+        } else {
+            sub = "No";
+        }
+        String actor1 = "", actor2 = "", actor3 = "";
+        if (tf_actoresPeli1 != null) {
+            actor1 = tf_actoresPeli1.getText() + ",";
+        } else {
+            actor1 = "-" + ",";
+        }
+        
+        //actor2
+        if (tf_actoresPeli2 != null) {
+            actor2 = tf_actoresPeli2.getText() + ",";
+        } else {
+            actor2 = "-" + ",";
+        }
+        
+        //actor3
+        if (tf_actoresPeli3 != null) {
+            actor3 = tf_actoresPeli3.getText() + ",";
+        } else {
+            actor3 = "-" + ",";
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -546,9 +610,9 @@ public class LOGIN extends javax.swing.JFrame {
     private javax.swing.JRadioButton rb_sub2;
     private javax.swing.JRadioButton rb_sub3;
     private javax.swing.JRadioButton rb_sub4;
-    private javax.swing.JTextField tf_actoresPeli;
     private javax.swing.JTextField tf_actoresPeli1;
     private javax.swing.JTextField tf_actoresPeli2;
+    private javax.swing.JTextField tf_actoresPeli3;
     private javax.swing.JTextField tf_actoresSerie1;
     private javax.swing.JTextField tf_actoresSerie2;
     private javax.swing.JTextField tf_actoresSerie3;
