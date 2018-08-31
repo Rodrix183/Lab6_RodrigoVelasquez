@@ -125,5 +125,5 @@ public class LOGIN extends javax.swing.JFrame {
     private javax.swing.JTextField tf_user;
     // End of variables declaration//GEN-END:variables
 ArrayList<Usuario> lista_users = new ArrayList<>();
-
+///Suspenso  , Terror , Acción , Románticas , Ciencia Ficción  , Animación  ,Fantasía
 }
