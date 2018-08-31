@@ -212,6 +212,11 @@ public class LOGIN extends javax.swing.JFrame {
         rb_sub4.setText("No");
 
         jButton3.setText("Guardar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -538,6 +543,55 @@ public class LOGIN extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+        try {
+            // guardar Serie
+            String nombre = tf_nombreSerie.getText();
+            int duracion = Integer.parseInt(tf_duracionSerie.getText());
+            String categoria = tf_catSerie.getText();
+            //
+            int temporadas = Integer.parseInt(tf_temporadas.getText());
+            String productora = tf_productora.getText();
+            String idioma = tf_idiomaSerie.getText();
+
+            String sub = "No";
+            if (rb_sub3.isSelected()) {
+                sub = "Si";
+            } else if (rb_sub4.isSelected()) {
+                sub = "No";
+            } else {
+                sub = "No";
+            }
+            String actor1 = "", actor2 = "", actor3 = "";
+            if (tf_actoresSerie1 != null) {
+                actor1 = tf_actoresSerie1.getText() + ",";
+            } else {
+                actor1 = "-" + ",";
+            }
+
+            //actor2
+            if (tf_actoresSerie2 != null) {
+                actor2 = tf_actoresSerie1.getText() + ",";
+            } else {
+                actor2 = "-" + ",";
+            }
+
+            //actor3
+            if (tf_actoresSerie3 != null) {
+                actor3 = tf_actoresSerie3.getText() + ",";
+            } else {
+                actor3 = "-" + ",";
+            }
+
+            AdministrarSeries as = new AdministrarSeries("./Series.txt");
+            as.setSerie(new Serie(nombre, duracion, categoria, temporadas, productora, idioma, nombre, sub));
+            as.escribirArchivo();
+        } catch (IOException ex) {
+
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

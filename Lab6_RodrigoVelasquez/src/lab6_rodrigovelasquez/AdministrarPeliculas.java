@@ -74,7 +74,7 @@ public class AdministrarPeliculas {
                 lea = new Scanner(archivo);
                 lea.useDelimiter(";");
                 while (lea.hasNext()) {
-                    ArrayList<Pelicula> temp = new ArrayList<>();
+                    ArrayList<ActorPelicula> temp = new ArrayList<>();
                     //atributos de la serie
                     String nom = "", cat = "", director = "", compañia = "", idioma = "", dub = "", sub = "";
                     int min = 0;
@@ -89,13 +89,15 @@ public class AdministrarPeliculas {
                     idioma = lea.next();
                     dub = lea.next();
                     sub = lea.next();
-
+                    nombreActor = lea.next();
                     Scanner lea2 = new Scanner(lea.next());
                     lea2.useDelimiter(",");
                     while (lea2.hasNext()) {
-                        //agregar lista de actores
+                        temp.add(new ActorPelicula(nombreActor));
                     }
+                    
                     lista_pelis.add(new Pelicula(nom, min, compañia, director, compañia, idioma, dub, compañia));
+                    lista_pelis.get(lista_pelis.size()-1).setActores(temp);
                 }
             } catch (Exception e) {
             } finally {
