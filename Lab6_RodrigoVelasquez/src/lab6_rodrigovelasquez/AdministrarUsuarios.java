@@ -50,8 +50,8 @@ public class AdministrarUsuarios {
             bw = new BufferedWriter(fw);
             for (Usuario us : lista_users) {
                 bw.write(us.getNombre() + ";");
-                bw.write(us.getPassword() + ";");
                 bw.write(us.getCodigo() + ";");
+                bw.write(us.getPassword() + ";");
             }
             bw.flush();
         } catch (Exception e) {
@@ -64,15 +64,18 @@ public class AdministrarUsuarios {
     public void cargarArchivo() {
         Scanner lea = null;
         lista_users = new ArrayList<>();
+
         if (archivo.exists()) {
             try {
                 lea = new Scanner(archivo);
                 lea.useDelimiter(";");
                 while (lea.hasNext()) {
-                    String name = "", pass = "";
-                    int code = 0;
+                    String name , pass;
+                    int code ;
+                    name = lea.next();
+                    code = lea.nextInt();
+                    pass = lea.next();
                     lista_users.add(new Usuario(name, code, code));
-
                 }
             } catch (Exception e) {
             } finally {
