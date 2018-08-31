@@ -1,5 +1,6 @@
 package lab6_rodrigovelasquez;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class LOGIN extends javax.swing.JFrame {
@@ -12,12 +13,43 @@ public class LOGIN extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jd_nesflis = new javax.swing.JDialog();
+        jButton2 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        arbol = new javax.swing.JTree();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         tf_user = new javax.swing.JTextField();
         pf_password = new javax.swing.JPasswordField();
+
+        jButton2.setText("Logout");
+
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Nesflis");
+        arbol.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane1.setViewportView(arbol);
+
+        javax.swing.GroupLayout jd_nesflisLayout = new javax.swing.GroupLayout(jd_nesflis.getContentPane());
+        jd_nesflis.getContentPane().setLayout(jd_nesflisLayout);
+        jd_nesflisLayout.setHorizontalGroup(
+            jd_nesflisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_nesflisLayout.createSequentialGroup()
+                .addContainerGap(79, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62)
+                .addComponent(jButton2)
+                .addContainerGap())
+        );
+        jd_nesflisLayout.setVerticalGroup(
+            jd_nesflisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_nesflisLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(jd_nesflisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -117,13 +149,19 @@ public class LOGIN extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTree arbol;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JDialog jd_nesflis;
     private javax.swing.JPasswordField pf_password;
     private javax.swing.JTextField tf_user;
     // End of variables declaration//GEN-END:variables
-ArrayList<Usuario> lista_users = new ArrayList<>();
+
+File Archivo = null;
+
 ///Suspenso  , Terror , Acción , Románticas , Ciencia Ficción  , Animación  ,Fantasía
 }
