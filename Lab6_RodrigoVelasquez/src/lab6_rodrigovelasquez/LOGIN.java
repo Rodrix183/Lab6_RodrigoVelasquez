@@ -1,8 +1,11 @@
 package lab6_rodrigovelasquez;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class LOGIN extends javax.swing.JFrame {
@@ -468,61 +471,71 @@ public class LOGIN extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // guardar pelicula
-        String nombre = tf_nombrePeli.getText();
-        int duracion = Integer.parseInt(tf_duracionPeli.getText());
-        String categoria = "";
-        if (rb1.isSelected()) {
-            categoria = "Suspenso";
-        } else if (rb2.isSelected()) {
-            categoria = "Terror";
-        } else if (rb3.isSelected()) {
-            categoria = "Accion";
-        } else if (rb4.isSelected()) {
-            categoria = "Romanticas";
-        } else if (rb5.isSelected()) {
-            categoria = "Ciencia Ficcion";
-        } else if (rb6.isSelected()) {
-            categoria = "Animacion";
-        } else if (rb7.isSelected()) {
-            categoria = "Fantasia";
-        } else {
-            categoria = "-";
-        }
-        //
-        String director = tf_directorPeli.getText();
-        String compania = tf_companiaPeli.getText();
-        String idioma = "No";
-        if (rb_dub1.isSelected()) {
-            idioma = "Si";
-        } else {
-            idioma = "No";
-        }
-        String sub = "No";
-        if (rb_sub1.isSelected()) {
-            sub = "Si";
-        } else {
-            sub = "No";
-        }
-        String actor1 = "", actor2 = "", actor3 = "";
-        if (tf_actoresPeli1 != null) {
-            actor1 = tf_actoresPeli1.getText() + ",";
-        } else {
-            actor1 = "-" + ",";
-        }
-        
-        //actor2
-        if (tf_actoresPeli2 != null) {
-            actor2 = tf_actoresPeli2.getText() + ",";
-        } else {
-            actor2 = "-" + ",";
-        }
-        
-        //actor3
-        if (tf_actoresPeli3 != null) {
-            actor3 = tf_actoresPeli3.getText() + ",";
-        } else {
-            actor3 = "-" + ",";
+
+        try {
+            // guardar pelicula
+            String nombre = tf_nombrePeli.getText();
+            int duracion = Integer.parseInt(tf_duracionPeli.getText());
+            String categoria = "";
+            if (rb1.isSelected()) {
+                categoria = "Suspenso";
+            } else if (rb2.isSelected()) {
+                categoria = "Terror";
+            } else if (rb3.isSelected()) {
+                categoria = "Accion";
+            } else if (rb4.isSelected()) {
+                categoria = "Romanticas";
+            } else if (rb5.isSelected()) {
+                categoria = "Ciencia Ficcion";
+            } else if (rb6.isSelected()) {
+                categoria = "Animacion";
+            } else if (rb7.isSelected()) {
+                categoria = "Fantasia";
+            } else {
+                categoria = "-";
+            }
+            //
+            String director = tf_directorPeli.getText();
+            String compania = tf_companiaPeli.getText();
+            String idioma = "No";
+            if (rb_dub1.isSelected()) {
+                idioma = "Si";
+            } else {
+                idioma = "No";
+            }
+            String sub = "No";
+            if (rb_sub1.isSelected()) {
+                sub = "Si";
+            } else {
+                sub = "No";
+            }
+            String actor1 = "", actor2 = "", actor3 = "";
+            if (tf_actoresPeli1 != null) {
+                actor1 = tf_actoresPeli1.getText() + ",";
+            } else {
+                actor1 = "-" + ",";
+            }
+
+            //actor2
+            if (tf_actoresPeli2 != null) {
+                actor2 = tf_actoresPeli2.getText() + ",";
+            } else {
+                actor2 = "-" + ",";
+            }
+
+            //actor3
+            if (tf_actoresPeli3 != null) {
+                actor3 = tf_actoresPeli3.getText() + ",";
+            } else {
+                actor3 = "-" + ",";
+            }
+
+            AdministrarPeliculas ap = new AdministrarPeliculas("./Peliculas.txt");
+            ap.cargarArchivo();
+            ap.setPelicula(new Pelicula(nombre, duracion, categoria, director, compania, idioma, nombre, sub));
+            ap.escribirArchivo();
+        } catch (IOException ex) {
+
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
