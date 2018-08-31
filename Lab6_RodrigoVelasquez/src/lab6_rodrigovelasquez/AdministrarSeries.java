@@ -73,12 +73,12 @@ public class AdministrarSeries {
                 lea = new Scanner(archivo);
                 lea.useDelimiter(";");
                 while (lea.hasNext()) {
-                    ArrayList<Serie> temp = new ArrayList<>();
+                    ArrayList<ActoresSerie> temp = new ArrayList<>();
                     //atributos de la serie
                     String nom = "", cat = "", prod = "", idioma = "", dub = "", sub = "";
-                    int min = 0, season = 0;                   
+                    int min = 0, season = 0;
                     //nombre actor
-                    String nombreActor = "";                    
+                    String nombreActor = "";
 
                     nom = lea.next();
                     min = lea.nextInt();
@@ -88,13 +88,14 @@ public class AdministrarSeries {
                     idioma = lea.next();
                     dub = lea.next();
                     sub = lea.next();
-
+                    nombreActor = lea.next();
                     Scanner lea2 = new Scanner(lea.next());
                     lea2.useDelimiter(",");
-                    while(lea2.hasNext()){
-                        //agregar lista de actores
+                    while (lea2.hasNext()) {
+                        temp.add(new ActoresSerie(nombreActor));
                     }
                     lista_series.add(new Serie(nom, min, cat, season, prod, idioma, dub, sub));
+                    lista_series.get(lista_series.size() - 1).setActores_principales(temp);
                 }
             } catch (Exception e) {
             } finally {

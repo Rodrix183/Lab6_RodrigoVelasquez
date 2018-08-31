@@ -78,6 +78,7 @@ public class LOGIN extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         arbol = new javax.swing.JTree();
         jPanel4 = new javax.swing.JPanel();
+        jButton4 = new javax.swing.JButton();
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
         buttonGroup3 = new javax.swing.ButtonGroup();
@@ -89,6 +90,12 @@ public class LOGIN extends javax.swing.JFrame {
         pf_password = new javax.swing.JPasswordField();
 
         jd_nesflis.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTabbedPane1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jTabbedPane1StateChanged(evt);
+            }
+        });
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel1.add(tf_nombrePeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 11, 159, -1));
@@ -377,7 +384,15 @@ public class LOGIN extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Logout", jPanel4);
 
-        jd_nesflis.getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 26, -1, -1));
+        jd_nesflis.getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        jButton4.setText("LOGOUT");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jd_nesflis.getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 0, -1, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -441,6 +456,7 @@ public class LOGIN extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
         Scanner lea = null;
         try {
             File archivo = new File("./Usuarios.txt");
@@ -462,11 +478,14 @@ public class LOGIN extends javax.swing.JFrame {
                 }
             }
             if (bandera) {
+                this.dispose();
                 jd_nesflis.setModal(true);
                 jd_nesflis.pack();
                 jd_nesflis.setLocationRelativeTo(this);
 
                 jd_nesflis.setVisible(true);
+                tf_user.setText("");
+                pf_password.setText("");
             } else {
                 JOptionPane.showMessageDialog(this, "No validos");
             }
@@ -556,6 +575,13 @@ public class LOGIN extends javax.swing.JFrame {
             String productora = tf_productora.getText();
             String idioma = tf_idiomaSerie.getText();
 
+            String dub = "No";
+            if (rb_dub3.isSelected()) {
+                dub = "Si";
+            } else if (rb_dub4.isSelected()) {
+                dub = "No";
+            }
+
             String sub = "No";
             if (rb_sub3.isSelected()) {
                 sub = "Si";
@@ -586,12 +612,21 @@ public class LOGIN extends javax.swing.JFrame {
             }
 
             AdministrarSeries as = new AdministrarSeries("./Series.txt");
-            as.setSerie(new Serie(nombre, duracion, categoria, temporadas, productora, idioma, nombre, sub));
+            as.setSerie(new Serie(nombre, duracion, categoria, temporadas, productora, idioma, dub, sub));
             as.escribirArchivo();
         } catch (IOException ex) {
 
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
+
+    }//GEN-LAST:event_jTabbedPane1StateChanged
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        jd_nesflis.dispose();
+        this.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -633,6 +668,7 @@ public class LOGIN extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
