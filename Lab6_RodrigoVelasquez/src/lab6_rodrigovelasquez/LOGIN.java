@@ -16,9 +16,68 @@ public class LOGIN extends javax.swing.JFrame {
     private void initComponents() {
 
         jd_nesflis = new javax.swing.JDialog();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
+        tf_nombrePeli = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        tf_duracionPeli = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        rb1 = new javax.swing.JRadioButton();
+        rb2 = new javax.swing.JRadioButton();
+        rb3 = new javax.swing.JRadioButton();
+        rb4 = new javax.swing.JRadioButton();
+        rb5 = new javax.swing.JRadioButton();
+        rb6 = new javax.swing.JRadioButton();
+        rb7 = new javax.swing.JRadioButton();
+        jLabel7 = new javax.swing.JLabel();
+        tf_directorPeli = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        tf_companiaPeli = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        tf_idiomaPeli = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        rb_dub1 = new javax.swing.JRadioButton();
+        rb_dub2 = new javax.swing.JRadioButton();
+        jLabel11 = new javax.swing.JLabel();
+        rb_sub1 = new javax.swing.JRadioButton();
+        rb_sub2 = new javax.swing.JRadioButton();
+        jLabel12 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        tf_actoresPeli = new javax.swing.JTextField();
+        tf_actoresPeli1 = new javax.swing.JTextField();
+        tf_actoresPeli2 = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        tf_nombreSerie = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        tf_duracionSerie = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        tf_temporadas = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        tf_productora = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        tf_idiomaSerie = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        rb_dub3 = new javax.swing.JRadioButton();
+        rb_dub4 = new javax.swing.JRadioButton();
+        jLabel20 = new javax.swing.JLabel();
+        tf_actoresSerie1 = new javax.swing.JTextField();
+        tf_actoresSerie2 = new javax.swing.JTextField();
+        tf_actoresSerie3 = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        rb_sub3 = new javax.swing.JRadioButton();
+        rb_sub4 = new javax.swing.JRadioButton();
+        jButton3 = new javax.swing.JButton();
+        tf_catSerie = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
         arbol = new javax.swing.JTree();
+        jPanel4 = new javax.swing.JPanel();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -26,32 +85,286 @@ public class LOGIN extends javax.swing.JFrame {
         tf_user = new javax.swing.JTextField();
         pf_password = new javax.swing.JPasswordField();
 
-        jButton2.setText("Logout");
+        jd_nesflis.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(tf_nombrePeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 11, 159, -1));
+
+        jLabel4.setText("Nombre");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 14, -1, -1));
+        jPanel1.add(tf_duracionPeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 37, 67, -1));
+
+        jLabel5.setText("Duracion");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+
+        jLabel6.setText("Categoria");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 63, -1, -1));
+
+        buttonGroup1.add(rb1);
+        rb1.setText("Suspenso");
+        jPanel1.add(rb1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 79, -1, -1));
+
+        buttonGroup1.add(rb2);
+        rb2.setText("Terror");
+        jPanel1.add(rb2, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 79, -1, -1));
+
+        buttonGroup1.add(rb3);
+        rb3.setText("Accion");
+        jPanel1.add(rb3, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 79, -1, -1));
+
+        buttonGroup1.add(rb4);
+        rb4.setText("Romanticas");
+        jPanel1.add(rb4, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 79, -1, -1));
+
+        buttonGroup1.add(rb5);
+        rb5.setText("Ciencia Ficcion");
+        jPanel1.add(rb5, new org.netbeans.lib.awtextra.AbsoluteConstraints(276, 79, -1, -1));
+
+        buttonGroup1.add(rb6);
+        rb6.setText("Animacion");
+        jPanel1.add(rb6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 102, -1, -1));
+
+        buttonGroup1.add(rb7);
+        rb7.setText("Fantasia");
+        jPanel1.add(rb7, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 102, -1, -1));
+
+        jLabel7.setText("Director");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
+        jPanel1.add(tf_directorPeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 120, -1));
+
+        jLabel8.setText("Compania");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
+        jPanel1.add(tf_companiaPeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 158, 130, -1));
+
+        jLabel9.setText("Idioma");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
+        jPanel1.add(tf_idiomaPeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 184, 130, -1));
+
+        jLabel10.setText("Doblado?");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
+
+        buttonGroup2.add(rb_dub1);
+        rb_dub1.setText("Si");
+        jPanel1.add(rb_dub1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, -1));
+
+        buttonGroup2.add(rb_dub2);
+        rb_dub2.setText("No");
+        jPanel1.add(rb_dub2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
+
+        jLabel11.setText("Tiene Subtitulos?");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, -1));
+
+        buttonGroup3.add(rb_sub1);
+        rb_sub1.setText("Si");
+        jPanel1.add(rb_sub1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
+
+        buttonGroup3.add(rb_sub2);
+        rb_sub2.setText("No");
+        jPanel1.add(rb_sub2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
+
+        jLabel12.setText("Actores principales: ");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, -1, -1));
+
+        jButton2.setText("Guardar");
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, -1, -1));
+        jPanel1.add(tf_actoresPeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 120, -1));
+        jPanel1.add(tf_actoresPeli1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 120, -1));
+        jPanel1.add(tf_actoresPeli2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, 120, -1));
+
+        jTabbedPane1.addTab("Crear Pelicula", jPanel1);
+
+        jLabel13.setText("Nombre");
+
+        jLabel14.setText("Duracion");
+
+        jLabel15.setText("Categoria");
+
+        jLabel16.setText("Temporadas");
+
+        jLabel17.setText("Productora");
+
+        jLabel18.setText("Idioma");
+
+        jLabel19.setText("Doblado?");
+
+        buttonGroup2.add(rb_dub3);
+        rb_dub3.setText("Si");
+
+        buttonGroup2.add(rb_dub4);
+        rb_dub4.setText("No");
+
+        jLabel20.setText("Actores principales: ");
+
+        jLabel21.setText("Tiene Subtitulos?");
+
+        buttonGroup3.add(rb_sub3);
+        rb_sub3.setText("Si");
+
+        buttonGroup3.add(rb_sub4);
+        rb_sub4.setText("No");
+
+        jButton3.setText("Guardar");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addGap(18, 18, 18)
+                        .addComponent(tf_duracionSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tf_temporadas, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(88, 88, 88)
+                        .addComponent(jLabel20))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel19)
+                        .addGap(206, 206, 206)
+                        .addComponent(tf_actoresSerie3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(rb_dub3)
+                        .addGap(7, 7, 7)
+                        .addComponent(rb_dub4))
+                    .addComponent(jLabel21)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(rb_sub3)
+                        .addGap(7, 7, 7)
+                        .addComponent(rb_sub4))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(170, 170, 170)
+                        .addComponent(jButton3))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel15)
+                            .addGap(18, 18, 18)
+                            .addComponent(tf_catSerie))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel13)
+                            .addGap(23, 23, 23)
+                            .addComponent(tf_nombreSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel17)
+                                .addGap(8, 8, 8)
+                                .addComponent(tf_productora, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel18)
+                                .addGap(13, 13, 13)
+                                .addComponent(tf_idiomaSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(65, 65, 65)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tf_actoresSerie2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tf_actoresSerie1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(157, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(47, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel13))
+                    .addComponent(tf_nombreSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel14))
+                    .addComponent(tf_duracionSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_catSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15))
+                .addGap(39, 39, 39)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel16)
+                        .addComponent(tf_temporadas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel20)))
+                .addGap(4, 4, 4)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tf_productora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel17)
+                            .addComponent(tf_actoresSerie1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tf_idiomaSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tf_actoresSerie2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel18)))
+                .addGap(8, 8, 8)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel19)
+                    .addComponent(tf_actoresSerie3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rb_dub3)
+                    .addComponent(rb_dub4))
+                .addGap(7, 7, 7)
+                .addComponent(jLabel21)
+                .addGap(6, 6, 6)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rb_sub3)
+                    .addComponent(rb_sub4))
+                .addGap(27, 27, 27)
+                .addComponent(jButton3)
+                .addGap(34, 34, 34))
+        );
+
+        jTabbedPane1.addTab("Crear Serie", jPanel2);
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Nesflis");
         arbol.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jScrollPane1.setViewportView(arbol);
+        jScrollPane2.setViewportView(arbol);
 
-        javax.swing.GroupLayout jd_nesflisLayout = new javax.swing.GroupLayout(jd_nesflis.getContentPane());
-        jd_nesflis.getContentPane().setLayout(jd_nesflisLayout);
-        jd_nesflisLayout.setHorizontalGroup(
-            jd_nesflisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_nesflisLayout.createSequentialGroup()
-                .addContainerGap(79, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62)
-                .addComponent(jButton2)
-                .addContainerGap())
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(115, 115, 115)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(138, Short.MAX_VALUE))
         );
-        jd_nesflisLayout.setVerticalGroup(
-            jd_nesflisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_nesflisLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(jd_nesflisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(29, Short.MAX_VALUE))
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(103, Short.MAX_VALUE))
         );
+
+        jTabbedPane1.addTab("Arbol", jPanel3);
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 573, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 434, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Logout", jPanel4);
+
+        jd_nesflis.getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 26, -1, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -183,14 +496,73 @@ public class LOGIN extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTree arbol;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JDialog jd_nesflis;
     private javax.swing.JPasswordField pf_password;
+    private javax.swing.JRadioButton rb1;
+    private javax.swing.JRadioButton rb2;
+    private javax.swing.JRadioButton rb3;
+    private javax.swing.JRadioButton rb4;
+    private javax.swing.JRadioButton rb5;
+    private javax.swing.JRadioButton rb6;
+    private javax.swing.JRadioButton rb7;
+    private javax.swing.JRadioButton rb_dub1;
+    private javax.swing.JRadioButton rb_dub2;
+    private javax.swing.JRadioButton rb_dub3;
+    private javax.swing.JRadioButton rb_dub4;
+    private javax.swing.JRadioButton rb_sub1;
+    private javax.swing.JRadioButton rb_sub2;
+    private javax.swing.JRadioButton rb_sub3;
+    private javax.swing.JRadioButton rb_sub4;
+    private javax.swing.JTextField tf_actoresPeli;
+    private javax.swing.JTextField tf_actoresPeli1;
+    private javax.swing.JTextField tf_actoresPeli2;
+    private javax.swing.JTextField tf_actoresSerie1;
+    private javax.swing.JTextField tf_actoresSerie2;
+    private javax.swing.JTextField tf_actoresSerie3;
+    private javax.swing.JTextField tf_catSerie;
+    private javax.swing.JTextField tf_companiaPeli;
+    private javax.swing.JTextField tf_directorPeli;
+    private javax.swing.JTextField tf_duracionPeli;
+    private javax.swing.JTextField tf_duracionSerie;
+    private javax.swing.JTextField tf_idiomaPeli;
+    private javax.swing.JTextField tf_idiomaSerie;
+    private javax.swing.JTextField tf_nombrePeli;
+    private javax.swing.JTextField tf_nombreSerie;
+    private javax.swing.JTextField tf_productora;
+    private javax.swing.JTextField tf_temporadas;
     private javax.swing.JTextField tf_user;
     // End of variables declaration//GEN-END:variables
 
