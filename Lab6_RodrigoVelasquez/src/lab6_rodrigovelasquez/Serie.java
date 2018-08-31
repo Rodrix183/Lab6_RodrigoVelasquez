@@ -10,22 +10,25 @@ private String nombre;
     private ArrayList <String> actores_principales = new ArrayList<>();
     private int temporadas;
     private String productora;
+    private String idiomaOriginal;
     private String doblaje;
     private String subtitulos_español;   
 
     public Serie() {
     }
 
-    public Serie(String nombre, int minutos_cap, String categoria, int temporadas, String productora, String doblaje, String subtitulos_español) {
+    public Serie(String nombre, int minutos_cap, String categoria, int temporadas, String productora, String idiomaOriginal, String doblaje, String subtitulos_español) {
         this.nombre = nombre;
         this.minutos_cap = minutos_cap;
         this.categoria = categoria;
         this.temporadas = temporadas;
         this.productora = productora;
+        this.idiomaOriginal = idiomaOriginal;
         this.doblaje = doblaje;
         this.subtitulos_español = subtitulos_español;
     }
 
+    
     public String getNombre() {
         return nombre;
     }
@@ -89,6 +92,16 @@ private String nombre;
     public void setSubtitulos_español(String subtitulos_español) {
         this.subtitulos_español = subtitulos_español;
     }
+
+    public String getIdiomaOriginal() {
+        return idiomaOriginal;
+    }
+
+    public void setIdiomaOriginal(String idiomaOriginal) {
+        this.idiomaOriginal = idiomaOriginal;
+    }
+    
+    
 
     @Override
     public String toString() {

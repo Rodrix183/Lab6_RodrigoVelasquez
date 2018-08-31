@@ -50,9 +50,11 @@ public class AdministrarSeries {
                 bw.write(serie.getNombre()+";");
                 bw.write(serie.getMinutos_cap()+";");
                 bw.write(serie.getCategoria()+";");
-                //aqui escribir actores
-                bw.write();
-                bw.write();
+                bw.write(serie.getTemporadas()+";");
+                bw.write(serie.getProductora()+";");
+                bw.write(serie.getIdiomaOriginal()+";");
+                bw.write(serie.getDoblaje()+";");
+                bw.write(serie.getSubtitulos_español()+";");
             }
             bw.flush();
         } catch (Exception e) {
@@ -61,4 +63,10 @@ public class AdministrarSeries {
         bw.close();
         fw.close();
     }
+    
+    public void cargarArchivo(){
+    
+    
+    }
+    
 }
