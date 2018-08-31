@@ -7,21 +7,22 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class AdministrarSeries {
+public class AdministrarPeliculas {
 
-    private ArrayList<Serie> lista_series = new ArrayList<>();
+    private ArrayList<Pelicula> lista_pelis = new ArrayList<>();
     private File archivo;
 
-    public AdministrarSeries(String path) {
+    public AdministrarPeliculas(String path) {
         archivo = new File(path);
+
     }
 
-    public ArrayList<Serie> getLista_series() {
-        return lista_series;
+    public ArrayList<Pelicula> getLista_pelis() {
+        return lista_pelis;
     }
 
-    public void setLista_series(ArrayList<Serie> lista_series) {
-        this.lista_series = lista_series;
+    public void setLista_pelis(ArrayList<Pelicula> lista_pelis) {
+        this.lista_pelis = lista_pelis;
     }
 
     public File getArchivo() {
@@ -34,11 +35,11 @@ public class AdministrarSeries {
 
     @Override
     public String toString() {
-        return "lista_series:" + lista_series;
+        return "AdministrarPeliculas{" + "lista_pelis=" + lista_pelis + '}';
     }
 
-    public void setSerie(Serie s) {
-        this.lista_series.add(s);
+    public void setPelicula(Pelicula p) {
+        this.lista_pelis.add(p);
     }
 
     public void escribirArchivo() throws IOException {
@@ -47,15 +48,15 @@ public class AdministrarSeries {
         try {
             fw = new FileWriter(archivo);
             bw = new BufferedWriter(fw);
-            for (Serie serie : lista_series) {
-                bw.write(serie.getNombre() + ";");
-                bw.write(serie.getMinutos_cap() + ";");
-                bw.write(serie.getCategoria() + ";");
-                bw.write(serie.getTemporadas() + ";");
-                bw.write(serie.getProductora() + ";");
-                bw.write(serie.getIdiomaOriginal() + ";");
-                bw.write(serie.getDoblaje() + ";");
-                bw.write(serie.getSubtitulos_español() + ";");
+            for (Pelicula pelis : lista_pelis) {
+                bw.write(pelis.getNombre() + ";");
+                bw.write(pelis.getMinutos() + ";");
+                bw.write(pelis.getCategoria() + ";");
+                bw.write(pelis.getDirector() + ";");
+                bw.write(pelis.getCompañia() + ";");
+                bw.write(pelis.getIdioma() + ";");
+                bw.write(pelis.getIdioma() + ";");
+                bw.write(pelis.getSubtitulos_español() + ";");
             }
             bw.flush();
         } catch (Exception e) {
@@ -67,41 +68,39 @@ public class AdministrarSeries {
 
     public void cargarArchivo() {
         Scanner lea = null;
-        lista_series = new ArrayList<>();
+        lista_pelis = new ArrayList<>();
         if (archivo.exists()) {
             try {
                 lea = new Scanner(archivo);
                 lea.useDelimiter(";");
                 while (lea.hasNext()) {
-                    ArrayList<Serie> temp = new ArrayList<>();
+                    ArrayList<Pelicula> temp = new ArrayList<>();
                     //atributos de la serie
-                    String nom = "", cat = "", prod = "", idioma = "", dub = "", sub = "";
-                    int min = 0, season = 0;                   
+                    String nom = "", cat = "", director = "", compañia = "", idioma = "", dub = "", sub = "";
+                    int min = 0;
                     //nombre actor
-                    String nombreActor = "";                    
+                    String nombreActor = "";
 
                     nom = lea.next();
                     min = lea.nextInt();
                     cat = lea.next();
-                    season = lea.nextInt();
-                    prod = lea.next();
+                    director = lea.next();
+                    compañia = lea.next();
                     idioma = lea.next();
                     dub = lea.next();
                     sub = lea.next();
 
                     Scanner lea2 = new Scanner(lea.next());
                     lea2.useDelimiter(",");
-                    while(lea2.hasNext()){
+                    while (lea2.hasNext()) {
                         //agregar lista de actores
                     }
-                    lista_series.add(new Serie(nom, min, cat, season, prod, idioma, dub, sub));
+                    lista_pelis.add(new Pelicula(nom, min, compañia, director, compañia, idioma, dub, compañia));
                 }
             } catch (Exception e) {
             } finally {
                 lea.close();
             }
         }
-
     }
-
 }

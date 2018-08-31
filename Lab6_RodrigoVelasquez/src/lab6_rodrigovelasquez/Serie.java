@@ -12,7 +12,7 @@ private String nombre;
     private String idiomaOriginal;
     private String doblaje;
     private String subtitulos_español;   
-    private ArrayList<Actor> actores_principales = new ArrayList<>();
+    private ArrayList<ActorPelicula> actores_principales = new ArrayList<>();
     
     public Serie() {
     }
@@ -53,15 +53,14 @@ private String nombre;
         this.categoria = categoria;
     }
 
-    public ArrayList<Actor> getActores_principales() {
+    public ArrayList<ActorPelicula> getActores_principales() {
         return actores_principales;
     }
 
-    public void setActores_principales(ArrayList<Actor> actores_principales) {
+    public void setActores_principales(ArrayList<ActorPelicula> actores_principales) {
         this.actores_principales = actores_principales;
     }
-
-    
+       
     public int getTemporadas() {
         return temporadas;
     }

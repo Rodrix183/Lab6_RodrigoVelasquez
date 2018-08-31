@@ -2,6 +2,8 @@ package lab6_rodrigovelasquez;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class LOGIN extends javax.swing.JFrame {
 
@@ -113,7 +115,38 @@ public class LOGIN extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        Scanner lea = null;
+        try {
+            File archivo = new File("./Usuarios.txt");
+            lea = new Scanner(archivo);
+            String user = "";
+            String pass = "";
+            user = tf_user.getText();
+            pass = pf_password.getText();
+            lea.useDelimiter(";");
+            boolean bandera = false;
+            while (lea.hasNext()) {
+                String t1, t2, t3;
+                t1 = lea.next();
+                t2 = lea.next();
+                t3 = lea.next();
+                if (t1.equals(user) && t3.equals(pass)) {
+                    bandera = true;
+                    break;
+                }
+            }
+            if (bandera) {
+                jd_nesflis.setModal(true);
+                jd_nesflis.pack();
+                jd_nesflis.setLocationRelativeTo(this);
+                
+                jd_nesflis.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(this, "No validos");
+            }
+        } catch (Exception e) {
+        }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {
@@ -161,7 +194,7 @@ public class LOGIN extends javax.swing.JFrame {
     private javax.swing.JTextField tf_user;
     // End of variables declaration//GEN-END:variables
 
-File Archivo = null;
+    File Archivo = null;
 
 ///Suspenso  , Terror , Acción , Románticas , Ciencia Ficción  , Animación  ,Fantasía
 }

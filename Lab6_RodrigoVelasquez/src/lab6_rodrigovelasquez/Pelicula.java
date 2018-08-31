@@ -10,24 +10,24 @@ public class Pelicula {
     private String director;
     private String compañia;
     private String idioma;
+    public String doblaje;
     private String subtitulos_español;
     
 
     public Pelicula() {
     }
 
-    public Pelicula(String nombre, int minutos, String categoria, String director, String compañia, String idioma, String subtitulos_español) {
+    public Pelicula(String nombre, int minutos, String categoria, String director, String compañia, String idioma, String doblaje, String subtitulos_español) {
         this.nombre = nombre;
         this.minutos = minutos;
         this.categoria = categoria;
         this.director = director;
         this.compañia = compañia;
         this.idioma = idioma;
+        this.doblaje = doblaje;
         this.subtitulos_español = subtitulos_español;
     }
 
-    
-    
     public String getNombre() {
         return nombre;
     }
@@ -91,6 +91,15 @@ public class Pelicula {
     public void setSubtitulos_español(String subtitulos_español) {
         this.subtitulos_español = subtitulos_español;
     }    
+
+    public String getDoblaje() {
+        return doblaje;
+    }
+
+    public void setDoblaje(String doblaje) {
+        this.doblaje = doblaje;
+    }
+    
     
     @Override
     public String toString() {
