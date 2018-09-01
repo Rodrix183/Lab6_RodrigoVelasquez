@@ -65,41 +65,69 @@ public class AdministrarSeries {
         fw.close();
     }
 
+//    public void cargarArchivo() {
+//        Scanner lea = null;
+//        lista_series = new ArrayList<>();
+//        if (archivo.exists()) {
+//            try {
+//                lea = new Scanner(archivo);
+//                lea.useDelimiter(";");
+//                while (lea.hasNext()) {
+//                    ArrayList<ActoresSerie> temp = new ArrayList<>();
+//                    //atributos de la serie
+//                    String nom = "", cat = "", prod = "", idioma = "", dub = "", sub = "";
+//                    int min = 0, season = 0;
+//                    //nombre actor
+//                    String nombreActor = "";
+//
+//                    nom = lea.next();
+//                    min = lea.nextInt();
+//                    cat = lea.next();
+//                    season = lea.nextInt();
+//                    prod = lea.next();
+//                    idioma = lea.next();
+//                    dub = lea.next();
+//                    sub = lea.next();
+//                    nombreActor = lea.next();
+//                    Scanner lea2 = new Scanner(lea.next());
+//                    lea2.useDelimiter(",");
+//                    while (lea2.hasNext()) {
+//                        temp.add(new ActoresSerie(nombreActor));
+//                    }
+//                    lista_series.add(new Serie(nom, min, cat, season, prod, idioma, dub, sub));
+//                    lista_series.get(lista_series.size() - 1).setActores_principales(temp);
+//                }
+//            } catch (Exception e) {
+//            } finally {
+//                lea.close();
+//            }
+//        }
     public void cargarArchivo() {
-        Scanner lea = null;
-        lista_series = new ArrayList<>();
+        Scanner sc = null;
+        lista_series = new ArrayList();
         if (archivo.exists()) {
             try {
-                lea = new Scanner(archivo);
-                lea.useDelimiter(";");
-                while (lea.hasNext()) {
-                    ArrayList<ActoresSerie> temp = new ArrayList<>();
-                    //atributos de la serie
-                    String nom = "", cat = "", prod = "", idioma = "", dub = "", sub = "";
-                    int min = 0, season = 0;
-                    //nombre actor
-                    String nombreActor = "";
+                sc = new Scanner(archivo);
+                sc.useDelimiter(";");
+                while (sc.hasNext()) {
+                    ArrayList<ActoresSerie> temp_actores = new ArrayList();
+                    String nombre;
+                    int duracion, num_temps=0;
+                    nombre = sc.next();
+                    duracion = sc.nextInt();
+                    String Categoria = sc.next();
+                    String prod = sc.next();
+                    String compa = sc.next();
+                    String idioma = sc.next();
+                    String doblaje2 = sc.next();
+                    String suvbs = sc.next();
+//String nombre, int minutos, String categoria, String director, String compañia, String idioma, String doblaje, String subtitulos_español
+                    lista_series.add(new Serie(nombre, duracion, Categoria, num_temps,prod, idioma, doblaje2, suvbs));
 
-                    nom = lea.next();
-                    min = lea.nextInt();
-                    cat = lea.next();
-                    season = lea.nextInt();
-                    prod = lea.next();
-                    idioma = lea.next();
-                    dub = lea.next();
-                    sub = lea.next();
-                    nombreActor = lea.next();
-                    Scanner lea2 = new Scanner(lea.next());
-                    lea2.useDelimiter(",");
-                    while (lea2.hasNext()) {
-                        temp.add(new ActoresSerie(nombreActor));
-                    }
-                    lista_series.add(new Serie(nom, min, cat, season, prod, idioma, dub, sub));
-                    lista_series.get(lista_series.size() - 1).setActores_principales(temp);
                 }
             } catch (Exception e) {
             } finally {
-                lea.close();
+                sc.close();
             }
         }
 

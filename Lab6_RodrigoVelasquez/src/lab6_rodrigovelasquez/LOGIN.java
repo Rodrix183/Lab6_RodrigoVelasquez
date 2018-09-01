@@ -1,17 +1,27 @@
 package lab6_rodrigovelasquez;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 public class LOGIN extends javax.swing.JFrame {
 
     public LOGIN() {
         initComponents();
+        AdministrarPeliculas ap = new AdministrarPeliculas("./Peliculas.txt");
+        AdministrarSeries as = new AdministrarSeries("./Series.txt");
+        ap.cargarArchivo();
+        as.cargarArchivo();
+        System.out.println(ap.getLista_pelis());
+        System.out.println(as.getLista_series());   
     }
 
     @SuppressWarnings("unchecked")
@@ -479,11 +489,12 @@ public class LOGIN extends javax.swing.JFrame {
             }
             if (bandera) {
                 this.dispose();
+                cargarArbol();
                 jd_nesflis.setModal(true);
                 jd_nesflis.pack();
                 jd_nesflis.setLocationRelativeTo(this);
-
                 jd_nesflis.setVisible(true);
+                
                 tf_user.setText("");
                 pf_password.setText("");
             } else {
@@ -494,6 +505,69 @@ public class LOGIN extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    public void cargarArbol() {
+        DefaultTreeModel modelo = (DefaultTreeModel) arbol.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelo.getRoot();
+        raiz.removeAllChildren();
+        DefaultMutableTreeNode raiz2=new DefaultMutableTreeNode("Peliculas");
+        AdministrarPeliculas ap = new AdministrarPeliculas("./Peliculas.txt");
+        AdministrarSeries as = new AdministrarSeries("./Series.txt");
+        ap.cargarArchivo();
+        as.cargarArchivo();
+        for (Pelicula p : ap.getLista_pelis()) {
+            String nombre = p.getNombre();
+            int minutos = p.getMinutos();
+            String categoria = p.getCategoria();
+            String director = p.getDirector();
+            String compañia = p.getCompañia();
+            String idioma = p.getIdioma();
+            String doblaje = p.getDoblaje();
+            String subtitulos_español = p.getSubtitulos_español();
+            //recorrido en anchura
+            for (int i = 0; i < raiz2.getChildCount(); i++) {
+                if (raiz2.getChildAt(i).toString().equals(nombre)) {
+                    DefaultMutableTreeNode w = new DefaultMutableTreeNode(new Pelicula(nombre, minutos, categoria, director, compañia, idioma, doblaje, subtitulos_español));
+                    ((DefaultMutableTreeNode) raiz2.getChildAt(i)).add(w);
+                    centinela = 1;
+                }
+            }
+            if (centinela == -1) {
+                DefaultMutableTreeNode q = new DefaultMutableTreeNode(nombre);
+                DefaultMutableTreeNode w = new DefaultMutableTreeNode(new Pelicula(nombre, minutos, categoria, director, compañia, idioma, doblaje, subtitulos_español));
+                q.add(w);
+                raiz2.add(q);
+            }//fin if
+            raiz.add(raiz2);
+            modelo.reload();
+        }
+        
+
+        for (Serie s : as.getLista_series()) {
+            String nombre = s.getNombre();
+            int minutos_cap = s.getMinutos_cap();
+            String categoria = s.getCategoria();
+            int temporadas = s.getTemporadas();
+            String productora = s.getProductora();
+            String idiomaOriginal = s.getIdiomaOriginal();
+            String doblaje = s.getDoblaje();
+            String subtitulos_español = s.getSubtitulos_español();
+            for (int i = 0; i < raiz2.getChildCount(); i++) {
+                if (raiz2.getChildAt(i).toString().equals(nombre)) {
+                    DefaultMutableTreeNode x = new DefaultMutableTreeNode(new Serie(nombre, minutos_cap, categoria, temporadas, productora, idiomaOriginal, doblaje, subtitulos_español));
+                    ((DefaultMutableTreeNode) raiz2.getChildAt(i)).add(x);
+                    centinela = 1;
+                }
+            }
+            if (centinela == -1) {
+                DefaultMutableTreeNode n = new DefaultMutableTreeNode(nombre);
+                DefaultMutableTreeNode x = new DefaultMutableTreeNode(new Serie(nombre, minutos_cap, categoria, temporadas, productora, idiomaOriginal, doblaje, subtitulos_español));
+                n.add(x);
+                raiz2.add(n);
+            }//fin if
+            raiz.add(raiz2);
+            modelo.reload();
+        }
+    }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
         try {
@@ -521,13 +595,9 @@ public class LOGIN extends javax.swing.JFrame {
             //
             String director = tf_directorPeli.getText();
             String compania = tf_companiaPeli.getText();
-            String idioma = "No";
-            if (rb_dub1.isSelected()) {
-                idioma = "Si";
-            } else {
-                idioma = "No";
-            }
+            String idioma = tf_idiomaPeli.getText();        
             String sub = "No";
+            String dub = "Espanol";
             if (rb_sub1.isSelected()) {
                 sub = "Si";
             } else {
@@ -553,11 +623,27 @@ public class LOGIN extends javax.swing.JFrame {
             } else {
                 actor3 = "-" + ",";
             }
-
             AdministrarPeliculas ap = new AdministrarPeliculas("./Peliculas.txt");
             ap.cargarArchivo();
-            ap.setPelicula(new Pelicula(nombre, duracion, categoria, director, compania, idioma, nombre, sub));
+            ap.setPelicula(new Pelicula(nombre, duracion, categoria, director, compania, idioma, dub, sub));
+            System.out.println(ap.getLista_pelis());
             ap.escribirArchivo();
+            ap.getLista_pelis().add(new Pelicula(nombre, WIDTH, categoria, director, compania, idioma, nombre, sub));
+//            
+//            //leer
+//            DefaultTreeModel modeloArbol = (DefaultTreeModel) arbol.getModel();
+//            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
+//            DefaultMutableTreeNode p;
+//            
+//            try {
+//                FileReader fr = new FileReader(Archivo);
+//                BufferedReader br = new BufferedReader(fr);
+//                boolean ban = false;
+//                
+//            } catch (Exception e) {
+//            }
+//            
+
         } catch (IOException ex) {
 
         }
@@ -620,7 +706,12 @@ public class LOGIN extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
+        if (jTabbedPane1.getSelectedIndex() == 2) {
 
+        } else if (jTabbedPane1.getSelectedIndex() == 3) {
+            jd_nesflis.dispose();
+            this.setVisible(true);
+        }
     }//GEN-LAST:event_jTabbedPane1StateChanged
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -734,6 +825,9 @@ public class LOGIN extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     File Archivo = null;
-
+//    DefaultTreeModel modeloArbol = (DefaultTreeModel) arbol.getModel();
+//    DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
+//    DefaultMutableTreeNode p;
+    int centinela = -1;
 ///Suspenso  , Terror , Acción , Románticas , Ciencia Ficción  , Animación  ,Fantasía
 }

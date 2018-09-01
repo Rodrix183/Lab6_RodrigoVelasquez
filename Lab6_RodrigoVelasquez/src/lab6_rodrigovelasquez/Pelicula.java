@@ -101,12 +101,14 @@ public class Pelicula {
     public void setDoblaje(String doblaje) {
         this.doblaje = doblaje;
     }
-    
-    
+
     @Override
     public String toString() {
-        return nombre;
+        return "Pelicula{" + "nombre=" + nombre + ", minutos=" + minutos + ", categoria=" + categoria + ", actores=" + actores + ", director=" + director + ", compa\u00f1ia=" + compañia + ", idioma=" + idioma + ", doblaje=" + doblaje + ", subtitulos_espa\u00f1ol=" + subtitulos_español + '}';
     }
+    
+    
+    
     
     
 }
